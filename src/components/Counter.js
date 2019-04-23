@@ -7,7 +7,8 @@ class Counter extends Component {
         super(props);
         //an object where the component stores key value pairs
         this.state = {
-            counter: 0
+            counter: 0,
+            increment: true,
         }
     }
 
