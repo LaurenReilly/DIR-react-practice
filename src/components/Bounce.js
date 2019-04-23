@@ -13,25 +13,30 @@ class Bounce extends Component {
     //have a callback function in this.setState
 
     componentDidMount() {
-        let {counter, increment} = this.state;
-        let numberCheck = () => {
-            if (counter >= 10) {
-                console.log("larger")
-                this.setState({increment: false})
-            } else if (counter <= 0) {
-                this.setState({increment: true})
-            }
-        }
+    
+        let {counter} = this.state;
+
         let bounceCount = () => {
-            if (increment === true) {
-                this.setState({counter: counter ++})
+            if (this.state.increment === true) {
+                console.log("true");
+                this.setState({counter: counter ++});
                 numberCheck();
-            } else if (increment === false) {
+            } else if (this.state.increment === false) {
                 this.setState({counter: counter --})
                 numberCheck();
             }
         }
-        setInterval(bounceCount, 1000);
+
+        let numberCheck = () => {
+            if (this.state.counter >= 9) {
+                console.log("larger")
+                this.setState({increment: false})
+            } else if (this.state.counter <= 1) {
+                this.setState({increment: true})
+            }
+        }
+
+        setInterval(bounceCount, 1000); 
     }
 
     render() {
