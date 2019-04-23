@@ -6,6 +6,9 @@ import Bounce from './components/Bounce';
 import CountBy from './components/CountBy';
 import Limit from './components/Limit';
 import AddCounter from './components/AddCounter'
+import LowerCase from './components/LowerCase';
+import Leet from './components/Leet';
+import Caesar from './components/Caesar';
 
 function App() {
   return (
@@ -18,6 +21,12 @@ function App() {
       <Limit upperLimit={20} lowerLimit={5}/>
       <h1>Add Counter</h1>
       <AddCounter/>
+      <h1>LowerCase</h1>
+      <LowerCase name="LAUREN"/>
+      <h1>Leet</h1>
+      <Leet name="loorena"/>
+      <h1>Caesar</h1>
+      <Caesar name="Lauren"/>
     </div>
   );
 }
