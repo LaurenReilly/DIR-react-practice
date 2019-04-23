@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 
-class Bounce extends Component {
+class CountBy extends Component {
     constructor(props) {
         super(props);
         this.state = {
             counter: 0,
             increment: true,
+            by: props.by
         }
     }
 
@@ -14,14 +15,14 @@ class Bounce extends Component {
 
     componentDidMount() {
     
-        let {counter} = this.state;
+        let {counter, by} = this.state;
 
         let bounceCount = () => {
             if (this.state.increment === true) {
-                this.setState({counter: counter ++});
+                this.setState({counter: counter += by});
                 numberCheck();
             } else if (this.state.increment === false) {
-                this.setState({counter: counter --})
+                this.setState({counter: counter -= by})
                 numberCheck();
             }
         }
@@ -39,9 +40,9 @@ class Bounce extends Component {
 
     render() {
         return (
-            <div>Bounce: {this.state.counter}</div>
+            <div>We are counting by {this.state.by}: {this.state.counter}</div>
         )
     }
 }
 
-export default Bounce;
+export default CountBy;

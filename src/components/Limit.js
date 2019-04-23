@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 
-class Bounce extends Component {
+class Limit extends Component {
     constructor(props) {
         super(props);
         this.state = {
             counter: 0,
             increment: true,
+            upperLimit: props.upperLimit,
+            lowerLimit: props.lowerLimit
         }
     }
 
@@ -14,7 +16,7 @@ class Bounce extends Component {
 
     componentDidMount() {
     
-        let {counter} = this.state;
+        let {counter, upperLimit, lowerLimit} = this.state;
 
         let bounceCount = () => {
             if (this.state.increment === true) {
@@ -27,9 +29,9 @@ class Bounce extends Component {
         }
 
         let numberCheck = () => {
-            if (this.state.counter >= 9) {
+            if (this.state.counter >= upperLimit -1) {
                 this.setState({increment: false})
-            } else if (this.state.counter <= 1) {
+            } else if (this.state.counter <= lowerLimit + 1) {
                 this.setState({increment: true})
             }
         }
@@ -39,9 +41,9 @@ class Bounce extends Component {
 
     render() {
         return (
-            <div>Bounce: {this.state.counter}</div>
+            <div>Limit is between{this.state.lowerLimit} and {this.state.upperLimit}: {this.state.counter}</div>
         )
     }
 }
 
-export default Bounce;
+export default Limit;
